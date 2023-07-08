@@ -1,0 +1,137 @@
+.sidebar {
+  margin-bottom: 50px;
+
+  > div {
+    border-bottom: 1px solid #dfdfdf;
+
+    &:first-child {
+      .title-dark {
+        padding-top: 0;
+      }
+    }
+  }
+
+  img {
+    max-width: 100% !important;
+  }
+
+  .title-dark {
+    font-size: 19px;
+  }
+
+  .sidebar-news {
+    .fcc-preview {
+      margin-bottom: 40px;
+      padding: 0;
+
+      .fcc-preview-image img {
+        height: auto;
+      }
+
+      .fcc-preview-content {
+        padding-left: 0;
+        padding-right: 0;
+      }
+
+      .fcc-preview-title {
+        text-align: center;
+        font-style: normal;
+        font-family: 'Roboto Regular';
+        font-size: 16px;
+        
+        &:after {
+          display: none;
+        }
+      }
+
+      .fcc-preview-actions {
+        text-align: center;
+      }
+    }
+  }
+
+  .sidebar-latest-speakers {
+    .fcc-preview {
+      margin-bottom: 30px;
+      padding: 0;
+    }
+
+    .fcc-preview-image img {
+      height: auto;
+    }
+    
+    .fcc-preview-content {
+      padding-left: 0;
+      padding-right: 0;
+    }
+
+    .fcc-preview-title {
+      font-size: 16px;
+    }
+
+    .fcc-preview-actions {
+      text-align: center;
+    }
+  }
+
+  .widget {
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+
+    .widgettitle {
+      @extend .title-dark;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+  }
+
+  .fcc-correspondent-preview {
+    padding-left: 0;
+    padding-right: 0;
+
+    .fcc-correspondent-preview-columns {
+      flex-direction: column;
+
+      img {
+        flex-basis: auto;
+        max-width: none;
+      }
+      
+      .fcc-preview-content {
+        padding-left: 0;
+        padding-right: 0;
+      }
+    }
+  }
+
+  @include max-tablet {
+    .fcc-preview {
+      .fcc-preview-image img {
+        width: auto;
+        margin: 0 auto;
+      }
+    }
+  }
+}
+
+.sidebar-hrpa {
+  img {
+    max-width: 100%;
+    margin-bottom: 15px;
+  }
+
+  a {
+    margin: 20px 0;
+  }
+}
+
+.sidebar-correspondent {
+  text-align: center;
+
+  img {
+    max-width: 180px;
+  }
+}

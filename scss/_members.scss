@@ -1,0 +1,29 @@
+.app-container {
+	margin-top: 40px;
+	min-height: 770px;
+
+	table {
+		table-layout: fixed;
+		width: 100%;
+	}
+
+	.echo-webview {
+		* {
+			max-width: 100%;
+		}
+	}
+}
+
+@include max-tablet {
+	.page-members-area {
+		.fcc-title-bar {
+			display: none;
+		}
+	}
+
+	.app-container {
+		padding-left: 0 !important;
+		padding-right: 0 !important;
+		margin-top: 0;
+	}
+}

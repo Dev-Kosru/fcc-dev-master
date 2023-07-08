@@ -1,0 +1,439 @@
+header {
+  position: relative;
+  background: $fcc-blue;
+  padding-top: 20px;
+  z-index: 90;
+
+  #logo {
+    float: left;
+
+    img {
+      max-height: 60px;
+      margin-top: 5px;
+    }
+
+    #logo40 {
+      margin-left: 15px;
+    }
+  }
+
+  #header-buttons {
+    float: right;
+    margin-bottom: 15px;
+
+    > * {
+      align-items: center;
+      margin-left: 15px;
+    }
+
+    a i {
+      color: white;
+      font-size: 17px;
+      padding: 8px;
+
+      &:hover {
+        color: $fcc-yellow;
+      }
+    }
+
+    .cart-contents {
+      position: relative;
+      
+      .count {
+        position: absolute;
+        top: -5px;
+        right: -5px;
+        display: block;
+        text-align: center;
+        opacity: 1;
+        line-height: 20px;
+        color: #fff;
+        background: red;
+        width: 20px;
+        height: 20px;
+        border-radius: 10px;
+      }
+    }
+  }
+
+  .members-area-logout {
+    display: none;
+
+    body.member-logged-in & {
+      display: inline-flex;
+    }
+  }
+
+  nav {
+    float: right;
+
+    .menu-toggle {
+      display: none;
+    }
+
+    ul#menu-primary {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+
+      li {
+        &.current-menu-item, &.current-menu-ancestor {
+          > a {
+            text-decoration: none;
+            color: $fcc-yellow;
+            border-bottom: 2px solid $fcc-yellow;
+          }
+        }
+
+        a:hover {
+          text-decoration: none;
+          color: $fcc-yellow;
+          border-bottom: 2px solid $fcc-yellow;
+        }
+      }
+
+      > li {
+        position: relative;
+        display: inline-block;
+
+        &:before {
+          display: none;
+        }
+        
+        a {
+          display: block;
+          color: white;
+          padding: 12px 10px 10px 10px;
+          text-decoration: none;
+          border-bottom: 2px solid transparent;
+          font-size: 13px;
+        }
+
+        > ul {
+          display: none;
+
+          li {
+            &:before {
+              display: none;
+            }
+
+            a {
+              display: block;
+              white-space: nowrap;
+            }
+          }          
+        }
+      }
+
+      .members-buttons {
+        justify-content: space-evenly;
+        margin-bottom: 15px;
+      }
+    }
+  }
+}
+
+header.sticky {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding-top: 0;
+  z-index: 95;
+
+  #logo {
+    img {
+      margin-top: 5px;
+      margin-bottom: 3px;
+      max-height: 28px;
+    }
+  }
+
+  #header-buttons {
+    margin-top: 4px;
+    margin-bottom: 4px;
+    margin-left: 10px;
+
+    #header-tel, #header-email, form {
+      display: none;
+    }
+  }
+}
+
+button.menu-toggle {
+  cursor: pointer;
+  background: transparent;
+  text-align: left;
+  float: right;
+  position: relative;
+  border: 2px solid transparent;
+  box-shadow: none;
+  border-radius: 2px;
+  font-size: 0.875em;
+  max-width: 120px; 
+  font-size: 1px;
+  margin-left: 8px;
+  padding-bottom: 20px;
+  padding-top: 20px;
+  
+  &:hover {
+    background-image: none; 
+  }
+  
+  span::before {
+    -webkit-transition: all, ease, 0.2s;
+    transition: all, ease, 0.2s; 
+  }
+
+  &:before, &:after, span::before {
+    content: '';
+    display: block;
+    height: 3px;
+    width: 20px;
+    position: absolute;
+    top: 50%;
+    left: 1em;
+    margin-top: -1px;
+    -webkit-transition: all, ease, 0.2s;
+    transition: all, ease, 0.2s;
+    border-radius: 3px; 
+    background-color: rgba(255, 255, 255, 0.6);
+  }
+
+  &:before {
+    -webkit-transform: translateY(-5px);
+        -ms-transform: translateY(-5px);
+            transform: translateY(-5px); 
+  }
+  &:after {
+    -webkit-transform: translateY(5px);
+        -ms-transform: translateY(5px);
+            transform: translateY(5px); 
+  }
+
+  .toggled &:before, .toggled &:after {
+    -webkit-transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+            transform: rotate(45deg); 
+  }
+
+  .toggled &:after {
+    -webkit-transform: rotate(-45deg);
+        -ms-transform: rotate(-45deg);
+            transform: rotate(-45deg); 
+  }
+
+  .toggled & span::before {
+    opacity: 0; 
+  }
+}
+
+@include max-tablet {
+  header.sticky {
+    display: none !important;
+  }
+
+  header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-right: 0 !important;
+    z-index: 50;
+
+    #logo {
+      position: relative;
+      margin-right: auto;
+      z-index: 70;
+
+      img {
+        max-height: 40px;
+      }
+    }
+
+    #header-buttons {
+      float: none;
+      margin-bottom: 0;
+
+      a {
+        margin-left: 0;
+      }
+
+      a.members-area, form {
+        display: none !important;
+      }
+    }
+
+    nav {
+      float: none;
+
+      .menu-toggle {
+        display: block;
+      }
+
+      ul.menu {
+        display: none;
+      }
+
+      &.toggled {
+        .menu-toggle {
+          position: relative;
+          z-index: 70;
+        }
+
+        ul#menu-primary {
+          position: fixed;
+          top: 59px;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          overflow-y: auto;
+          display: flex;
+          flex-direction: column;
+          background: $fcc-blue;
+          z-index: 60;
+          
+          > li {
+            &.open {
+              > ul {
+                display: block;
+              }
+
+              > a {
+                &:after {
+                  content: fa-content($fa-var-chevron-down);
+                }
+              }
+            }
+
+            > a {
+              font-size: 17px;
+              border-bottom-color: transparent;
+              padding-left: 15px;
+
+              &:after {
+                content: fa-content($fa-var-chevron-right);
+                font-family: 'Font Awesome 5 Free';
+                font-weight: 900;
+                font-style: normal;
+                font-size: 18px;
+                float: right;
+                color: white;
+                margin-right: 15px;
+              }
+            }
+
+            > ul {
+              li {
+                a {
+                  font-style: normal;
+                  border-bottom-color: transparent;
+                  padding: 5px 10px;
+                  font-size: 14px;
+                  
+                  img {
+                    vertical-align: middle;
+                    margin-right: 10px;
+                    width: 35px;
+                    filter: contrast(0) brightness(3);
+                  }
+                }
+              }
+            }
+          }
+
+          .menuuserwrap {
+            display: flex;
+            align-items: flex-start;
+            padding-left: 15px;
+            padding-top: 15px;
+            padding-bottom: 15px;
+            margin-bottom: 5px;
+            background-color: #fff;
+
+            img {
+              width: 50px;
+              object-fit: contain;
+            }
+            
+            .menuuserinfo {
+              color: $fcc-blue;
+              display: flex;
+              flex-direction: column;
+              align-items: flex-start;
+              padding-left: 10px;
+            }
+
+            .avatar {
+              width: 50px;
+              height: 59px;
+            }
+
+            .usertext {
+              color: $fcc-blue;
+              font-size: 14px;
+              font-weight: bold;
+              margin-bottom: 5px;
+            }
+
+            .usertitle {
+              font-size: 12px;
+              color: $fcc-blue;
+              background-color: $fcc-yellow;
+              border-radius: 5px;
+              padding-top: 4px;
+              padding-right: 5px;
+              padding-bottom: 4px;
+              padding-left: 5px;
+            }
+
+            .member_number {
+              font-size: 12px;
+              font-weight: bold;
+              padding-top: 3px;
+              padding-bottom: 3px;
+            }
+
+            .status {
+              font-weight: bold;
+
+              .statusDot {
+                font-size: 50px;
+                font-weight: normal;
+                line-height: 10px;
+                vertical-align: middle;
+              }
+            }
+          }
+        }
+      }
+
+      .members-buttons {
+        display: flex;
+      }
+    }
+  }
+}
+
+@include min-tablet {
+  header {
+    ul#menu-primary {
+      > li {
+        &:hover {
+          > ul {
+            display: block;
+            position: absolute;
+            top: 100%;
+            background-color: $fcc-blue;
+            margin: 0;
+          }
+        }
+      }
+    }
+  }
+}

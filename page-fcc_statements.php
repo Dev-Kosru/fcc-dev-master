@@ -1,0 +1,1 @@
+<? include('page-press_freedom.php');
